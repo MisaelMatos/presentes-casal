@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nosso Cantinho de Presentes ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rosa: #ff4f81;
+            --rosa-claro: #fff0f5;
+            --rosa-escuro: #d93668;
+            --vermelho: #ff3d5a;
+            --branco: #ffffff;
+            --texto: #333;
+            --cinza: #777;
+            --fundo: #fff8fa;
+            --verde: #42c98a;
+            --sombra: 0 10px 30px rgba(255, 79, 129, 0.15);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #ff4f81,
+                #ff758f,
+                #ff9a9e
+            );
+
+            color: white;
+            padding: 35px 20px 70px;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+            box-shadow: var(--sombra);
+        }
+
+        .coracao {
+            font-size: 45px;
+            animation: bater 1.2s infinite;
+        }
+
+        @keyframes bater {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        header h1 {
+            margin-top: 10px;
+            font-size: 35px;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.95;
+            font-size: 16px;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: min(1100px, 92%);
+            margin: -35px auto 50px;
+            position: relative;
+        }
+
+        /* =========================
+           PAINEL
+        ========================= */
+
+        .painel {
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: var(--sombra);
+            margin-bottom: 30px;
+        }
+
+        .painel h2 {
+            margin-bottom: 20px;
+            color: var(--rosa-escuro);
+        }
+
+        .botoes {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            padding: 13px 20px;
+            border-radius: 14px;
+            background: var(--rosa);
+            color: white;
+        }
+
+        .btn:hover {
+            background: var(--rosa-escuro);
+        }
+
+        .btn-secundario {
+            background: #ffe1ea;
+            color: var(--rosa-escuro);
+        }
+
+        /* =========================
+           FILTROS
+        ========================= */
+
+        .filtros {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .filtro {
+            padding: 10px 17px;
+            border-radius: 30px;
+            background: white;
+            color: var(--rosa-escuro);
+            border: 2px solid #ffd1dd;
+        }
+
+        .filtro.ativo {
+            background: var(--rosa);
+            color: white;
+        }
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .presentes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .presente {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .presente:hover {
+            transform: translateY(-6px);
+        }
+
+        .imagem-presente {
+            height: 210px;
+            background: linear-gradient(
+                135deg,
+                #ffd1dc,
+                #ffeaf0
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            overflow: hidden;
+        }
+
+        .imagem-presente img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .conteudo {
+            padding: 20px;
+        }
+
+        .destinatario {
+            display: inline-block;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            background: #ffe5ed;
+            color: var(--rosa-escuro);
+            margin-bottom: 10px;
+        }
+
+        .conteudo h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .descricao {
+            color: var(--cinza);
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 42px;
+        }
+
+        .preco {
+            font-size: 19px;
+            color: var(--rosa-escuro);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .acoes {
+            display: flex;
+            gap: 8px;
+        }
+
+        .acoes button {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .btn-escolher {
+            background: var(--verde);
+            color: white;
+        }
+
+        .btn-excluir {
+            background: #ffe3e3;
+            color: #d33;
+        }
+
+        .escolhido {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--verde);
+            color: white;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.ativo {
+            display: flex;
+        }
+
+        .modal-conteudo {
+            background: white;
+            width: min(500px, 100%);
+            padding: 30px;
+            border-radius: 25px;
+            animation: aparecer 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .fechar {
+            background: none;
+            font-size: 28px;
+            color: #777;
+        }
+
+        .campo {
+            margin-bottom: 15px;
+        }
+
+        .campo label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .campo input,
+        .campo textarea,
+        .campo select {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .campo input:focus,
+        .campo textarea:focus,
+        .campo select:focus {
+            border-color: var(--rosa);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        /* =========================
+           SURPRESA
+        ========================= */
+
+        .surpresa {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .caixa {
+            font-size: 100px;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .caixa:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .resultado-surpresa {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--rosa-escuro);
+        }
+
+        /* =========================
+           ESTATÍSTICAS
+        ========================= */
+
+        .estatisticas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .estatistica {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--sombra);
+        }
+
+        .estatistica strong {
+            display: block;
+            font-size: 28px;
+            color: var(--rosa);
+        }
+
+        .estatistica span {
+            font-size: 13px;
+            color: var(--cinza);
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 27px;
+            }
+
+            .estatisticas {
+                grid-template-columns: 1fr;
+            }
+
+            .presentes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="coracao">❤️</div>
+
+        <h1>Nosso Cantinho de Presentes</h1>
+
+        <p>
+            Um lugar para guardar aqueles presentes que fazem nossos olhos brilharem ✨
+        </p>
+    </header>
+
+
+    <main class="container">
+
+        <!-- PAINEL PRINCIPAL -->
+        <section class="painel">
+
+            <h2>🎁 Lista de desejos</h2>
+
+            <div class="botoes">
+
+                <button class="btn" onclick="abrirModal()">
+                    + Adicionar presente
+                </button>
+
+                <button class="btn btn-secundario" onclick="abrirSurpresa()">
+                    🎁 Surpresa
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ESTATÍSTICAS -->
+        <section class="estatisticas">
+
+            <div class="estatistica">
+                <strong id="totalPresentes">0</strong>
+                <span>Presentes cadastrados</span>
+            </div>
+
+            <div class="estatistica">
+                <strong id="meusPresentes">0</strong>
+                <span>Para mim</span>
+            </div>
+
+            <div class="estatistica">
+                <strong id="presentesDela">0</strong>
+                <span>Para ela</span>
+            </div>
+
+        </section>
+
+
+        <!-- FILTROS -->
+        <div class="filtros">
+
+            <button
+                class="filtro ativo"
+                onclick="filtrar('todos', this)">
+                ❤️ Todos
+            </button>
+
+            <button
+                class="filtro"
+                onclick="filtrar('eu', this)">
+                👨 Para mim
+            </button>
+
+            <button
+                class="filtro"
+                onclick="filtrar('ela', this)">
+                👩 Para ela
+            </button>
+
+            <button
+                class="filtro"
+                onclick="filtrar('escolhidos', this)">
+                🎁 Escolhidos
+            </button>
+
+        </div>
+
+
+        <!-- LISTA DE PRESENTES -->
+        <section class="presentes" id="listaPresentes">
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         MODAL ADICIONAR PRESENTE
+    ========================= -->
+
+    <div class="modal" id="modal">
+
+        <div class="modal-conteudo">
+
+            <div class="modal-topo">
+
+                <h2>🎁 Novo presente</h2>
+
+                <button
+                    class="fechar"
+                    onclick="fecharModal()">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Nome do presente</label>
+
+                <input
+                    type="text"
+                    id="nomePresente"
+                    placeholder="Ex: Perfume, tênis, jantar..."
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Para quem?</label>
+
+                <select id="destinatario">
+
+                    <option value="eu">
+                        👨 Para mim
+                    </option>
+
+                    <option value="ela">
+                        👩 Para ela
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Descrição</label>
+
+                <textarea
+                    id="descricaoPresente"
+                    placeholder="Coloque alguma informação sobre o presente..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Preço aproximado</label>
+
+                <input
+                    type="text"
+                    id="precoPresente"
+                    placeholder="Ex: R$ 150,00"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Foto do presente</label>
+
+                <input
+                    type="text"
+                    id="imagemPresente"
+                    placeholder="Cole aqui o link de uma imagem"
+                >
+
+            </div>
+
+
+            <button
+                class="btn"
+                style="width:100%;"
+                onclick="adicionarPresente()">
+
+                ❤️ Adicionar à nossa lista
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL SURPRESA
+    ========================= -->
+
+    <div class="modal" id="modalSurpresa">
+
+        <div class="modal-conteudo surpresa">
+
+            <button
+                class="fechar"
+                onclick="fecharSurpresa()"
+                style="float:right;">
+                ×
+            </button>
+
+            <h2>🎁 Presente surpresa</h2>
+
+            <p style="margin:20px 0;">
+                Clique na caixa para descobrir uma sugestão...
+            </p>
+
+            <div
+                class="caixa"
+                onclick="sortearPresente()">
+
+                🎁
+
+            </div>
+
+            <div
+                class="resultado-surpresa"
+                id="resultadoSurpresa">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================================
+           DADOS
+        ========================================= */
+
+        let presentes = JSON.parse(
+            localStorage.getItem("presentesCasal")
+        ) || [
+
+            {
+                id: 1,
+                nome: "Perfume que eu quero muito",
+                destinatario: "eu",
+                descricao: "Aquele perfume que eu fiquei olhando na loja 👀",
+                preco: "R$ 350,00",
+                imagem: "",
+                escolhido: false
+            },
+
+            {
+                id: 2,
+                nome: "Jantar romântico",
+                destinatario: "ela",
+                descricao: "Um jantarzinho só nós dois ❤️",
+                preco: "R$ 200,00",
+                imagem: "",
+                escolhido: false
+            }
+
+        ];
+
+
+        let filtroAtual = "todos";
+
+
+        /* =========================================
+           SALVAR
+        ========================================= */
+
+        function salvar() {
+
+            localStorage.setItem(
+                "presentesCasal",
+                JSON.stringify(presentes)
+            );
+
+        }
+
+
+        /* =========================================
+           RENDERIZAR
+        ========================================= */
+
+        function renderizar() {
+
+            const lista =
+                document.getElementById("listaPresentes");
+
+            lista.innerHTML = "";
+
+
+            let filtrados = presentes.filter(presente => {
+
+                if (filtroAtual === "todos") {
+                    return true;
+                }
+
+                if (filtroAtual === "eu") {
+                    return presente.destinatario === "eu";
+                }
+
+                if (filtroAtual === "ela") {
+                    return presente.destinatario === "ela";
+                }
+
+                if (filtroAtual === "escolhidos") {
+                    return presente.escolhido;
+                }
+
+            });
+
+
+            if (filtrados.length === 0) {
+
+                lista.innerHTML = `
+
+                    <div class="painel"
+                         style="grid-column:1/-1;text-align:center;">
+
+                        <div style="font-size:60px;">
+                            🥺
+                        </div>
+
+                        <h2>
+                            Nenhum presente aqui ainda
+                        </h2>
+
+                        <p style="color:#777;">
+                            Adicione alguma coisa que você gostaria de ganhar ❤️
+                        </p>
+
+                    </div>
+
+                `;
+
+                atualizarEstatisticas();
+
+                return;
+            }
+
+
+            filtrados.forEach(presente => {
+
+                const card =
+                    document.createElement("article");
+
+                card.className = "presente";
+
+
+                let emoji =
+                    presente.destinatario === "eu"
+                        ? "👨"
+                        : "👩";
+
+
+                let imagemHTML = "";
+
+                if (presente.imagem.trim() !== "") {
+
+                    imagemHTML = `
+                        <img
+                            src="${presente.imagem}"
+                            alt="${presente.nome}"
+                            onerror="this.style.display='none';"
+                        >
+                    `;
+
+                } else {
+
+                    imagemHTML = "🎁";
+
+                }
+
+
+                card.innerHTML = `
+
+                    ${presente.escolhido
+                        ? `<div class="escolhido">
+                            ❤️ Escolhido
+                           </div>`
+                        : ""
+                    }
+
+                    <div class="imagem-presente">
+                        ${imagemHTML}
+                    </div>
+
+
+                    <div class="conteudo">
+
+                        <span class="destinatario">
+                            ${emoji}
+                            ${presente.destinatario === "eu"
+                                ? "Para mim"
+                                : "Para ela"}
+                        </span>
+
+
+                        <h3>
+                            ${presente.nome}
+                        </h3>
+
+
+                        <p class="descricao">
+                            ${presente.descricao || "Sem descrição"}
+                        </p>
+
+
+                        <div class="preco">
+                            ${presente.preco || "Preço não informado"}
+                        </div>
+
+
+                        <div class="acoes">
+
+                            <button
+                                class="btn-escolher"
+                                onclick="alternarEscolhido(${presente.id})">
+
+                                ${presente.escolhido
+                                    ? "↩ Desmarcar"
+                                    : "❤️ Escolher"}
+
+                            </button>
+
+
+                            <button
+                                class="btn-excluir"
+                                onclick="excluirPresente(${presente.id})">
+
+                                🗑
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                lista.appendChild(card);
+
+            });
+
+
+            atualizarEstatisticas();
+
+        }
+
+
+        /* =========================================
+           ESTATÍSTICAS
+        ========================================= */
+
+        function atualizarEstatisticas() {
+
+            document.getElementById("totalPresentes")
+                .textContent = presentes.length;
+
+
+            document.getElementById("meusPresentes")
+                .textContent =
+                presentes.filter(p => p.destinatario === "eu").length;
+
+
+            document.getElementById("presentesDela")
+                .textContent =
+                presentes.filter(p => p.destinatario === "ela").length;
+
+        }
+
+
+        /* =========================================
+           ADICIONAR PRESENTE
+        ========================================= */
+
+        function adicionarPresente() {
+
+            const nome =
+                document
+                .getElementById("nomePresente")
+                .value
+                .trim();
+
+
+            const destinatario =
+                document
+                .getElementById("destinatario")
+                .value;
+
+
+            const descricao =
+                document
+                .getElementById("descricaoPresente")
+                .value
+                .trim();
+
+
+            const preco =
+                document
+                .getElementById("precoPresente")
+                .value
+                .trim();
+
+
+            const imagem =
+                document
+                .getElementById("imagemPresente")
+                .value
+                .trim();
+
+
+            if (!nome) {
+
+                alert(
+                    "Digite o nome do presente ❤️"
+                );
+
+                return;
+
+            }
+
+
+            const novoPresente = {
+
+                id: Date.now(),
+
+                nome: nome,
+
+                destinatario: destinatario,
+
+                descricao: descricao,
+
+                preco: preco,
+
+                imagem: imagem,
+
+                escolhido: false
+
+            };
+
+
+            presentes.push(novoPresente);
+
+            salvar();
+
+            renderizar();
+
+            limparFormulario();
+
+            fecharModal();
+
+        }
+
+
+        /* =========================================
+           ESCOLHER / DESMARCAR
+        ========================================= */
+
+        function alternarEscolhido(id) {
+
+            const presente =
+                presentes.find(
+                    p => p.id === id
+                );
+
+
+            if (!presente) return;
+
+
+            presente.escolhido =
+                !presente.escolhido;
+
+
+            salvar();
+
+            renderizar();
+
+        }
+
+
+        /* =========================================
+           EXCLUIR
+        ========================================= */
+
+        function excluirPresente(id) {
+
+            const confirmar =
+                confirm(
+                    "Tem certeza que quer remover esse presente? 🥺"
+                );
+
+
+            if (!confirmar) return;
+
+
+            presentes =
+                presentes.filter(
+                    p => p.id !== id
+                );
+
+
+            salvar();
+
+            renderizar();
+
+        }
+
+
+        /* =========================================
+           FILTROS
+        ========================================= */
+
+        function filtrar(tipo, botao) {
+
+            filtroAtual = tipo;
+
+
+            document
+                .querySelectorAll(".filtro")
+                .forEach(b => {
+                    b.classList.remove("ativo");
+                });
+
+
+            botao.classList.add("ativo");
+
+
+            renderizar();
+
+        }
+
+
+        /* =========================================
+           MODAL
+        ========================================= */
+
+        function abrirModal() {
+
+            document
+                .getElementById("modal")
+                .classList.add("ativo");
+
+        }
+
+
+        function fecharModal() {
+
+            document
+                .getElementById("modal")
+                .classList.remove("ativo");
+
+        }
+
+
+        function limparFormulario() {
+
+            document.getElementById("nomePresente").value = "";
+
+            document.getElementById("descricaoPresente").value = "";
+
+            document.getElementById("precoPresente").value = "";
+
+            document.getElementById("imagemPresente").value = "";
+
+        }
+
+
+        /* =========================================
+           SURPRESA
+        ========================================= */
+
+        function abrirSurpresa() {
+
+            document
+                .getElementById("modalSurpresa")
+                .classList.add("ativo");
+
+
+            document
+                .getElementById("resultadoSurpresa")
+                .textContent = "";
+
+        }
+
+
+        function fecharSurpresa() {
+
+            document
+                .getElementById("modalSurpresa")
+                .classList.remove("ativo");
+
+        }
+
+
+        function sortearPresente() {
+
+            if (presentes.length === 0) {
+
+                document
+                    .getElementById("resultadoSurpresa")
+                    .textContent =
+                    "Vocês ainda não adicionaram nenhum presente 🥺";
+
+                return;
+
+            }
+
+
+            const indice =
+                Math.floor(
+                    Math.random() * presentes.length
+                );
+
+
+            const presente =
+                presentes[indice];
+
+
+            const nomePessoa =
+                presente.destinatario === "eu"
+                    ? "você"
+                    : "ela";
+
+
+            document
+                .getElementById("resultadoSurpresa")
+                .innerHTML = `
+
+                    🎉 A surpresa é:
+
+                    <br><br>
+
+                    <strong>
+                        ${presente.nome}
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Esse presente é para ${nomePessoa} ❤️
+                    </small>
+
+                `;
+
+        }
+
+
+        /* =========================================
+           FECHAR MODAIS CLICANDO FORA
+        ========================================= */
+
+        window.onclick = function(event) {
+
+            const modal =
+                document.getElementById("modal");
+
+            const modalSurpresa =
+                document.getElementById("modalSurpresa");
+
+
+            if (event.target === modal) {
+                fecharModal();
+            }
+
+
+            if (event.target === modalSurpresa) {
+                fecharSurpresa();
+            }
+
+        };
+
+
+        /* =========================================
+           INICIAR
+        ========================================= */
+
+        renderizar();
+
+    </script>
+
+</body>
+</html>
